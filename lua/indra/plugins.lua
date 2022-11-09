@@ -4,7 +4,6 @@ vim.cmd([[
     autocmd BufWritePost plugins.lua source <afile> | PackerSync 
   augroup end
 ]])
-
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -34,7 +33,8 @@ packer.init {
 
 return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
-
+  use "nvim-lua/plenary.nvim"
+  
   -- My plugins here
 
   -- color scheme
@@ -63,6 +63,14 @@ return require('packer').startup(function(use)
 
   -- status bar
   use 'nvim-lualine/lualine.nvim'
+
+  -- lsp 
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
+  use 'jose-elias-alvarez/null-ls.nvim'
   
   if packer_bootstrap then
     require('packer').sync()
