@@ -1,0 +1,8 @@
+require("indra.options")
+require("indra.keymaps")
+require("indra.colorscheme")
+require("indra.plugins")
+require("indra.nvim-tree")
+require("indra.comment")
+require("indra.treesitter")
+require("indra.lualine")
