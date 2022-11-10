@@ -3,6 +3,7 @@ if not status_ok then
   return
 end
 
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
   sources = {
     null_ls.builtins.formatting.prettierd
