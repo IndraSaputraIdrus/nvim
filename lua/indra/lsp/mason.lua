@@ -10,4 +10,14 @@ end
 
 mason.setup()
 
-mason_lspconfig.setup()
+mason_lspconfig.setup({
+  ensure_installed = {
+    "sumneko_lua",
+    "tailwindcss",
+    "cssls",
+    "html",
+    "tsserver",
+    "emmet_ls",
+  },
+  automatic_installation = true,
+})
