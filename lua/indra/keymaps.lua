@@ -33,3 +33,5 @@ keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffer<cr>")
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
+-- toggle term
+keymap.set("n", "<F7>", "<cmd>ToggleTerm<cr>")
