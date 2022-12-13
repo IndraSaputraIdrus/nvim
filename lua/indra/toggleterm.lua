@@ -3,4 +3,6 @@ if not status_ok then
   return
 end
 
-toggleterm.setup()
+toggleterm.setup({
+  open_mapping = [[<c-\>]],
+})

@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
 
   -- color scheme
   use 'ellisonleao/gruvbox.nvim'
+  use 'Mofiqul/dracula.nvim'
    
   -- nvim tree
   use 'nvim-tree/nvim-tree.lua' 
@@ -86,6 +87,11 @@ return require('packer').startup(function(use)
 
   -- toggle term
   use 'akinsho/toggleterm.nvim'
+
+  -- buffer line
+  -- using packer.nvim
+use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+
   
   if packer_bootstrap then
     require('packer').sync()
