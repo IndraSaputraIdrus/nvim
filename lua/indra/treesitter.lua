@@ -22,7 +22,6 @@ treesitter.setup({
     "markdown",
     "svelte",
     "graphql",
-    "bash",
     "lua",
     "vim",
     "dockerfile",
