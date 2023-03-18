@@ -1,9 +1,5 @@
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync 
-  augroup end
-]])
+local fn = vim.fn
+
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -16,9 +12,17 @@ local ensure_packer = function()
 end
 
 local packer_bootstrap = ensure_packer()
+-- autocommad update plugin when save this file
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerSync 
+  augroup end
+]])
 
-local status, packer = pcall(require, "packer")
-if not status then
+-- require packer
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
   return
 end
 
@@ -31,69 +35,68 @@ packer.init {
   },
 }
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+return require("packer").startup(function(use)
+  use "wbthomason/packer.nvim"
   use "nvim-lua/plenary.nvim"
-  
-  -- My plugins here
+  use "nvim-lua/popup.nvim"
 
-  -- color scheme
-  use 'ellisonleao/gruvbox.nvim'
-  use 'Mofiqul/dracula.nvim'
-   
+  -- colorscheme
+  use "catppuccin/nvim"
+  use "ellisonleao/gruvbox.nvim"
+
+  -- lua line
+  use "nvim-lualine/lualine.nvim"
+
   -- nvim tree
-  use 'nvim-tree/nvim-tree.lua' 
+  use "nvim-tree/nvim-tree.lua"
   use 'nvim-tree/nvim-web-devicons'
 
-  -- comment
-  use 'numToStr/Comment.nvim'
+  -- cmp plugins
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-cmdline'
+  use 'hrsh7th/nvim-cmp'
+  use 'saadparwaiz1/cmp_luasnip'
+  use 'hrsh7th/cmp-nvim-lsp'
 
-  -- vim surround
-  use 'tpope/vim-surround'
+  -- snippets
+  use "L3MON4D3/LuaSnip" --snippet engine
+  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-  -- treesitter
-  use {
-      'nvim-treesitter/nvim-treesitter',
-      run = function()
-          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-          ts_update()
-      end,
-  }
-
-  use 'windwp/nvim-ts-autotag' -- auto tag using treesitter
-
-  -- status bar
-  use 'nvim-lualine/lualine.nvim'
-
-  -- lsp 
+  -- lsp server
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
   }
-  use 'jose-elias-alvarez/null-ls.nvim'
 
-  -- autocompletion
-  use 'hrsh7th/cmp-nvim-lsp'  
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
+  -- null ls
+  use "jose-elias-alvarez/null-ls.nvim"
 
-  -- snippet 
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'rafamadriz/friendly-snippets'
+  -- treesitter
+  use "nvim-treesitter/nvim-treesitter"
+  use "windwp/nvim-ts-autotag"
+
+  -- bufferline
+  use "akinsho/bufferline.nvim"
+
+  -- vim visual multi
+  use "mg979/vim-visual-multi"
+
+  -- nvim comment 
+  use "terrortylor/nvim-comment"
+
+  -- nvim auto pairs
+  use "windwp/nvim-autopairs"
+
+  -- nvim surround
+  use "tpope/vim-surround"
 
   -- toggle term
-  use 'akinsho/toggleterm.nvim'
+  use "akinsho/toggleterm.nvim"
 
-  -- buffer line
-  -- using packer.nvim
-use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
 
-  
   if packer_bootstrap then
-    require('packer').sync()
+    require("packer").sycn()
   end
 end)
