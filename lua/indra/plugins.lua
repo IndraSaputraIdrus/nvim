@@ -1,5 +1,3 @@
-local fn = vim.fn
-
 local ensure_packer = function()
   local fn = vim.fn
   local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -41,8 +39,7 @@ return require("packer").startup(function(use)
   use "nvim-lua/popup.nvim"
 
   -- colorscheme
-  use "catppuccin/nvim"
-  use "ellisonleao/gruvbox.nvim"
+  use "navarasu/onedark.nvim"
 
   -- lua line
   use "nvim-lualine/lualine.nvim"
@@ -51,23 +48,26 @@ return require("packer").startup(function(use)
   use "nvim-tree/nvim-tree.lua"
   use 'nvim-tree/nvim-web-devicons'
 
-  -- cmp plugins
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'hrsh7th/cmp-nvim-lsp'
-
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
-
   -- lsp server
   use {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
     "neovim/nvim-lspconfig",
+  }
+
+  -- auto completetion
+  use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+  }
+  -- snippet
+  use {
+    'L3MON4D3/LuaSnip',
+    'saadparwaiz1/cmp_luasnip',
+    "rafamadriz/friendly-snippets"
   }
 
   -- null ls
@@ -94,6 +94,10 @@ return require("packer").startup(function(use)
 
   -- toggle term
   use "akinsho/toggleterm.nvim"
+
+  -- indent line
+  use "lukas-reineke/indent-blankline.nvim"
+
 
 
   if packer_bootstrap then

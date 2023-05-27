@@ -49,4 +49,6 @@ opt.splitbelow = true
 -- - '2'    -- I am a programmer and not a writer
 -- + 'j'    -- Join comments smartly
 vim.cmd [[autocmd FileType * set formatoptions-=ro]]
+vim.cmd [[au BufNewFile,BufRead *.ejs set filetype=html
+]]
 
