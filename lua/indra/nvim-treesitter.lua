@@ -20,12 +20,12 @@ treesitter.setup({
     "html",
     "css",
     "markdown",
-    "svelte",
     "graphql",
     "lua",
     "vim",
     "dockerfile",
     "gitignore",
+    "php",
   },
   -- auto install above language parsers
   auto_install = true,
