@@ -1,3 +1,0 @@
-# screenshot
-
-![screenshot](./screenshot.png)
