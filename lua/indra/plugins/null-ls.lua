@@ -1,5 +1,5 @@
 return {
-	"jose-elias-alvarez/null-ls.nvim", -- configure formatters & linters
+	"nvimtools/none-ls.nvim",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
 		{ "nvim-lua/plenary.nvim", setup = true },
