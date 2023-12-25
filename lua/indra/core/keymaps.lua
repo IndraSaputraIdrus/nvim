@@ -23,7 +23,7 @@ keymap("n", "<leader>ff", "<cmd>lua MiniPick.builtin.files()<cr>", default_opts(
 
 -- buffer
 keymap("n", "<S-h>", "<cmd>bprev<cr>", default_opts("Go to prev buffer"))
-keymap("n", "<S-l>", "<cmd>bprev<cr>", default_opts("Go to next buffer"))
+keymap("n", "<S-l>", "<cmd>bnext<cr>", default_opts("Go to next buffer"))
 keymap("n", "<leader>x", "<cmd>bdelete<cr>", default_opts("Close current buffer"))
 
 -- for completeion
