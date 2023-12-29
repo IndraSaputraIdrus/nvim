@@ -14,4 +14,6 @@ opt.autoindent = true
 opt.smartindent = true
 opt.showtabline = 2
 
+opt.hidden = true
+
 opt.list = false
