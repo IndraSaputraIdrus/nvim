@@ -30,6 +30,11 @@ return {
 
     require("mini.pick").setup()
 
+    -- color for minipick
+    vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { link = "PmenuSel" })
+    vim.api.nvim_set_hl(0, "MiniPickNormal", { link = "Cleared" })
+    vim.api.nvim_set_hl(0, "MiniPickBorder", { link = "Cleared" })
+
     -- MiniPick key bind
     local keymap = vim.api.nvim_set_keymap
     keymap("n", "<leader>ff", "<cmd>lua MiniPick.builtin.files()<CR>",
