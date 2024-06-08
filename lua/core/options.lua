@@ -1,5 +1,9 @@
 local opt = vim.opt
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 vim.g.mapleader = " "
 opt.number = true
 opt.scrolloff = 10
@@ -17,3 +21,4 @@ opt.showtabline = 2
 opt.hidden = true
 
 opt.list = false
+

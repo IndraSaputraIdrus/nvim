@@ -9,20 +9,24 @@ return {
   config = function()
     local nvimtree = require("nvim-tree")
 
-    -- recommended settings from nvim-tree documentation
-    vim.g.loaded_netrw = 1
-    vim.g.loaded_netrwPlugin = 1
-
     -- configure nvim-tree
     nvimtree.setup({
       view = {
-        relativenumber = true,
+        relativenumber = false,
       },
-      -- change folder arrow icons
       renderer = {
         indent_markers = {
-          enable = true,
+          enable = false,
+        icons = {
+          corner = "",
+          edge = "",
+          item = "",
+          bottom = "",
+          none = "",
+          },
         },
+        indent_width = 2,
+        root_folder_label = false
       },
       -- disable window_picker for
       -- explorer to work well with
