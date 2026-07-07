@@ -104,8 +104,8 @@ vim.o.termguicolors = true
 vim.o.expandtab = true -- Use spaces instead of tabs
 
 -- disable netrw at the very start of your init.lua
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 vim.o.wrap = false
 vim.o.tabstop = 4 -- Number of spaces tabs count for
