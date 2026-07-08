@@ -107,7 +107,7 @@ vim.o.expandtab = true -- Use spaces instead of tabs
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-vim.o.wrap = false
+vim.o.wrap = true
 vim.o.tabstop = 4 -- Number of spaces tabs count for
 vim.o.shiftround = true -- Round indent
 vim.o.shiftwidth = 4 -- Size of an indent
