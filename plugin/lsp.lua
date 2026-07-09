@@ -5,8 +5,6 @@ vim.pack.add({
 
 require("mason").setup()
 
-vim.lsp.enable({ "lua_ls" })
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("lsp-attach", { clear = true }),
 	callback = function(event)

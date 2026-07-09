@@ -50,4 +50,7 @@ vim.schedule(function()
 		"<cmd>lua MiniExtra.pickers.lsp({ scope = 'implementation' })<cr>",
 		{ desc = "Open diagnostic picker" }
 	)
+
+	-- Git
+	require("mini.git").setup()
 end)
