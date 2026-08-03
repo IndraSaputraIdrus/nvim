@@ -53,4 +53,7 @@ vim.schedule(function()
 
 	-- Git
 	require("mini.git").setup()
+
+    -- Buffer
+    require("mini.tabline").setup()
 end)

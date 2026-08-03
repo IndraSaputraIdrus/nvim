@@ -4,3 +4,6 @@ require("conform").formatters_by_ft.python = {
 }
 
 vim.lsp.enable("ty")
+
+require("nvim-treesitter").install({ "python" })
+vim.treesitter.start()
