@@ -9,7 +9,7 @@ require("blink.cmp").setup({
 		preset = "luasnip",
 	},
 	keymap = {
-		preset = "super-tab",
+		preset = "enter",
 	},
 	appearance = {
 		nerd_font_variant = "mono",

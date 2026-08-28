@@ -1,19 +1,43 @@
-vim.pack.add({
-	"https://github.com/nvim-mini/mini.nvim",
-})
+do
+	vim.pack.add({
+		"https://github.com/nvim-mini/mini.nvim",
+	})
 
--- Mini icons
-local mini_icons = require("mini.icons")
-mini_icons.setup()
-mini_icons.tweak_lsp_kind()
+	-- Mini icons
 
-require("mini.indentscope").setup()
-require("mini.pairs").setup()
-require("mini.surround").setup()
-require("mini.statusline").setup()
-require("mini.extra").setup()
+	if vim.g.have_nerd_font then
+		local mini_icons = require("mini.icons")
+		mini_icons.setup()
+		mini_icons.mock_nvim_web_devicons()
+	end
 
-vim.schedule(function()
+	-- Better Around/Inside textobjects
+	--
+	-- Examples:
+	--  - va)  - [V]isually select [A]round [)]paren
+	--  - yiiq - [Y]ank [I]nside [I]+1 [Q]uote
+	--  - ci'  - [C]hange [I]nside [']quote
+	require("mini.ai").setup({
+		-- NOTE: Avoid conflicts with the built-in incremental selection mappings on Neovim>=0.12 (see `:help treesitter-incremental-selection`)
+		mappings = {
+			around_next = "aa",
+			inside_next = "ii",
+		},
+		n_lines = 500,
+	})
+
+	-- Add/delete/replace surroundings (brackets, quotes, etc.)
+	--
+	-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
+	-- - sd'   - [S]urround [D]elete [']quotes
+	-- - sr)'  - [S]urround [R]eplace [)] [']
+	require("mini.surround").setup()
+
+	require("mini.indentscope").setup()
+	require("mini.pairs").setup()
+	require("mini.statusline").setup()
+	require("mini.extra").setup()
+
 	-- mini files
 	require("mini.files").setup()
 	vim.keymap.set("n", "-", "<cmd>lua MiniFiles.open()<cr>", { desc = "File manager" })
@@ -54,6 +78,6 @@ vim.schedule(function()
 	-- Git
 	require("mini.git").setup()
 
-    -- Buffer
-    require("mini.tabline").setup()
-end)
+	-- Buffer
+	require("mini.tabline").setup()
+end
